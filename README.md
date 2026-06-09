@@ -1,16 +1,86 @@
-# React + Vite
+# Repuestos Industriales
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicacion web para gestionar clientes, productos, solicitudes y reportes de
+repuestos industriales.
 
-Currently, two official plugins are available:
+El proyecto tiene dos entradas:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Aplicacion principal:** usa la configuracion real del proyecto.
+- **Demo publica:** usa datos locales inventados, imagenes locales y cambios
+  guardados solo en el navegador.
 
-## React Compiler
+## Demo local
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+La demo no necesita Supabase ni credenciales.
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev:demo
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Luego abre:
+
+```text
+http://localhost:5173/index-demo.html
+```
+
+## Datos demo
+
+Los datos demo viven en:
+
+```text
+src/lib/demoSeedData.js
+```
+
+Las imagenes demo de productos viven en:
+
+```text
+public/demo-products/
+```
+
+Cuando alguien crea, edita, elimina o importa datos en la demo, esos cambios se
+guardan en `localStorage`. No se modifica ninguna base de datos externa.
+
+## Reiniciar la demo
+
+La barra superior muestra el indicador `DEMO` y un boton `Reiniciar demo`.
+Ese boton limpia los cambios locales del navegador y vuelve a los datos
+iniciales.
+
+## Build
+
+Build de produccion de la app principal:
+
+```bash
+npm run build
+```
+
+Build de la demo para publicar:
+
+```bash
+npm run build:demo
+```
+
+El build demo se genera en:
+
+```text
+dist-demo/
+```
+
+## Publicacion en GitHub Pages
+
+El repositorio incluye el workflow:
+
+```text
+.github/workflows/demo-pages.yml
+```
+
+Cuando se suben cambios a `main`, GitHub Actions instala dependencias, ejecuta
+`npm run build:demo` y publica la carpeta `dist-demo` en GitHub Pages.
+
+## Tecnologias
+
+- React
+- Vite
+- Supabase JS en la app principal
+- ExcelJS y jsPDF para exportaciones

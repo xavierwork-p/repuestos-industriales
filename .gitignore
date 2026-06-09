@@ -9,12 +9,14 @@ lerna-debug.log*
 
 # Environment variables
 .env
+.env.demo
 .env.local
 *.local
 
 # Dependencies and build
 node_modules
 dist
+dist-demo
 dist-ssr
 
 # Editor directories and files
