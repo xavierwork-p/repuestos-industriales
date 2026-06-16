@@ -7,7 +7,7 @@
     "dev": "vite",
     "dev:demo": "vite --open /index-demo.html",
     "build": "vite build",
-    "build:demo": "vite build --mode demo --outDir dist-demo",
+    "build:demo": "vite build --mode demo --outDir dist-demo && node scripts/prepare_demo_build.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },

@@ -24,6 +24,9 @@ npm run build:demo
 
 El build demo sale en `dist-demo`.
 
+El build tambien copia `index-demo.html` como `index.html` para que servicios
+como Vercel puedan abrir la demo desde la raiz del dominio.
+
 ## Reiniciar cambios locales
 
 La barra superior de la demo tiene un boton `Reiniciar demo`. Ese boton limpia

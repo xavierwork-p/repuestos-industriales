@@ -67,6 +67,30 @@ El build demo se genera en:
 dist-demo/
 ```
 
+Ese comando deja disponibles `dist-demo/index-demo.html` y `dist-demo/index.html`.
+El segundo es importante para Vercel, porque la raiz del sitio debe abrir un
+`index.html`.
+
+## Vercel
+
+Para publicar la demo sin afectar la app de produccion, crea un proyecto Vercel
+separado para la demo y usa estos settings:
+
+```text
+Framework Preset: Vite
+Build Command: npm run build:demo
+Output Directory: dist-demo
+Install Command: npm install
+```
+
+No cambies esos settings en el proyecto Vercel que usa la app real, porque ese
+link se actualizaria con la demo. Para la app real, deja el build normal:
+
+```text
+Build Command: npm run build
+Output Directory: dist
+```
+
 ## Publicacion en GitHub Pages
 
 El repositorio incluye el workflow:
